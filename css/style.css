@@ -1,0 +1,107 @@
+:root {
+    --cor1: #222222;
+    --cor2: #e54;
+    --cor3: #fb5;
+    
+    font-size: 62.5%; /* 1rem == 10px */
+}
+
+.cor1 {
+    color: var(--cor1);
+}
+
+.cor2 {
+    color: var(--cor2);
+}
+
+/* ############### RESET STYLE BODY ############## */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ############### STYLE ############## */
+body {
+    font-size: 1.6rem;
+
+    color: var(--cor1);
+    background-color: #faf6ed;
+    
+    display: grid;
+    grid-template-columns: minmax(300px, 900px);
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    text-decoration: none;
+    background-color: #e54;
+}
+
+.menu a {
+    color: var(--cor1);
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Playfair Display SC', georgia;
+    font-weight: 300;
+    line-height: 10rem;
+    font-size: 10rem;
+
+}
+
+h2,
+.font-menu,
+dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+p,
+dd {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 2rem;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+
+
+/* ################ HEADER MENU ################ */
+
+.menu {
+    padding-top: 2.8rem;
+    padding-bottom: 2.8rem;
+    margin-left: 2rem;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+
+/* ################ ANIMAIS ################ */
+
+.animais-grid {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    gap: 3.2rem;
+}
+
+.animais-galeria {
+    max-width: max-content;
+    max-height: 32rem;
+    overflow-y: scroll;
+}
+
