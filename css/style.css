@@ -27,27 +27,32 @@ ul {
 /* ############### STYLE ############## */
 body {
     font-size: 1.6rem;
-
+    -webkit-font-smoothing: antialiased;
     color: var(--cor1);
     background-color: #faf6ed;
+
     
     display: grid;
     grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
 .grid-section {
+    width: 100%;
     display: grid;
     grid-template-columns: 90px 300px 1fr;
     grid-template-rows: 2fr;
     gap: 2rem;
+    box-sizing: border-box;
+    padding: 2rem;
 }
 
-h1 {
+.titulo {
     font-family: 'Playfair Display SC', georgia;
     font-weight: 300;
     line-height: 10rem;
     font-size: 10rem;
     margin-bottom: 3.2rem;
+    grid-column: 1/-1;
 }
 
 h2,
@@ -58,17 +63,28 @@ dt {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+    margin-bottom: 2.4rem;
+}
+
+h2::before {
+    content: '';
+    display: inline-block;
+    width: 4rem;
+    height: 1rem;
+    background-color: var(--cor3);
+    margin-right: 0.8rem;
 }
 
 p,
 dd {
     font-family: Helvetica, Arial, sans-serif;
     line-height: 2rem;
+    margin-bottom: 1rem;
 }
 
 img {
     display: block;
-    width: 100%;
+    max-width: 100%;
 }
 
 /* ################ HEADER MENU ################ */
@@ -100,12 +116,8 @@ img {
 
 /* ################ ANIMAIS ################ */
 .animais {
-    grid-column: 2/3;
+    grid-column: 2/5;
     margin-bottom: 6rem;
-}
-
-.grid-section h1 {
-    grid-column: 1/-1;
 }
 
 .grid-section .animais-galeria {
@@ -113,12 +125,7 @@ img {
 }
 
 .grid-section .animais-info {
-    justify-items: start;
     grid-column: 3;
-}
-
-.animais-info p {
-    width: 50ch;
 }
 
 .animais-galeria {
@@ -131,20 +138,12 @@ img {
     grid-column: 2/3;
 }
 
-.grid-section h1 {
-    grid-column: 1/-1;
-}
-
 .grid-section .faq-info {
     grid-column: 2/-1;
-    width: 50ch;
+    max-width: 100%;
 }
 
 /* ################ CONTATO ################ */
 .contato {
     grid-column: 2/3;
-}
-.contato-conteudo {
-    display: grid;
-    grid-template-columns: 2fr 4fr;
 }
