@@ -20,6 +20,10 @@
     padding: 0px;
 }
 
+ul {
+    list-style: none;
+}
+
 /* ############### STYLE ############## */
 body {
     font-size: 1.6rem;
@@ -28,19 +32,14 @@ body {
     background-color: #faf6ed;
     
     display: grid;
-    grid-template-columns: minmax(300px, 900px);
-    justify-content: center;
+    grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
-ul {
-    list-style: none;
-    text-decoration: none;
-    background-color: #e54;
-}
-
-.menu a {
-    color: var(--cor1);
-    text-decoration: none;
+.grid-section {
+    display: grid;
+    grid-template-columns: 90px 300px 1fr;
+    grid-template-rows: 2fr;
+    gap: 2rem;
 }
 
 h1 {
@@ -48,14 +47,14 @@ h1 {
     font-weight: 300;
     line-height: 10rem;
     font-size: 10rem;
-
+    margin-bottom: 3.2rem;
 }
 
 h2,
 .font-menu,
 dt {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -72,18 +71,26 @@ img {
     width: 100%;
 }
 
-
-
-
 /* ################ HEADER MENU ################ */
-
 .menu {
     padding-top: 2.8rem;
     padding-bottom: 2.8rem;
-    margin-left: 2rem;
+
+    grid-column: 3/-1;
 }
 
-nav ul {
+.menu-itens {
+    list-style: none;
+    text-decoration: none;
+    background-color: var(--cor3);
+}
+
+.menu a {
+    color: var(--cor1);
+    text-decoration: none;
+}
+
+.menu ul {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -92,16 +99,52 @@ nav ul {
 
 
 /* ################ ANIMAIS ################ */
+.animais {
+    grid-column: 2/3;
+    margin-bottom: 6rem;
+}
 
-.animais-grid {
-    display: grid;
-    grid-template-columns: 2fr 4fr;
-    gap: 3.2rem;
+.grid-section h1 {
+    grid-column: 1/-1;
+}
+
+.grid-section .animais-galeria {
+    grid-column: 2;
+}
+
+.grid-section .animais-info {
+    justify-items: start;
+    grid-column: 3;
+}
+
+.animais-info p {
+    width: 50ch;
 }
 
 .animais-galeria {
-    max-width: max-content;
     max-height: 32rem;
     overflow-y: scroll;
 }
 
+/* ################ FAQ ################ */
+.faq {
+    grid-column: 2/3;
+}
+
+.grid-section h1 {
+    grid-column: 1/-1;
+}
+
+.grid-section .faq-info {
+    grid-column: 2/-1;
+    width: 50ch;
+}
+
+/* ################ CONTATO ################ */
+.contato {
+    grid-column: 2/3;
+}
+.contato-conteudo {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+}
