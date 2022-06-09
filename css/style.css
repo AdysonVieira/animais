@@ -40,7 +40,6 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 90px 300px 1fr;
-    grid-template-rows: 2fr;
     gap: 2rem;
     box-sizing: border-box;
     padding: 2rem;
@@ -66,7 +65,8 @@ dt {
     margin-bottom: 2.4rem;
 }
 
-h2::before {
+h2::before,
+dt::before {
     content: '';
     display: inline-block;
     width: 4rem;
@@ -79,7 +79,6 @@ p,
 dd {
     font-family: Helvetica, Arial, sans-serif;
     line-height: 2rem;
-    margin-bottom: 1rem;
 }
 
 img {
@@ -116,7 +115,7 @@ img {
 
 /* ################ ANIMAIS ################ */
 .animais {
-    grid-column: 2/5;
+    grid-column: 2 / 4;
     margin-bottom: 6rem;
 }
 
@@ -124,26 +123,120 @@ img {
     grid-column: 2;
 }
 
+.animais-galeria {
+    max-height: 37rem;
+    overflow-y: scroll;
+}
+
+/* estilo do scroll */
+.grid-section .animais-galeria::-webkit-scrollbar {
+    width: 1.8rem;
+}
+
+.grid-section .animais-galeria::-webkit-scrollbar-thumb {
+    border-left: 6px solid #faf6ed;
+}
+
+.grid-section .animais-galeria::-webkit-scrollbar-track {
+    background: #faf6ed;
+}
+
+
 .grid-section .animais-info {
     grid-column: 3;
 }
 
-.animais-galeria {
-    max-height: 32rem;
-    overflow-y: scroll;
+.grid-section .animais-info div {
+    margin-bottom: 4rem;
 }
 
 /* ################ FAQ ################ */
+
 .faq {
-    grid-column: 2/3;
+    grid-column: 2 / 4;
 }
 
-.grid-section .faq-info {
-    grid-column: 2/-1;
-    max-width: 100%;
+.faq-info {
+    grid-column: 2 / -1;
 }
 
 /* ################ CONTATO ################ */
 .contato {
-    grid-column: 2/3;
+    grid-column: 2 / 4;
+}
+
+.grid-section .contato-mapa {
+    grid-column: 2;
+}
+
+.contato li p {
+    margin-bottom: 2rem;
+    
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contato li p::before {
+    content: '';
+    display: inline-block;
+    width: 4rem;
+    height: 1rem;
+    background-color: var(--cor3);
+    margin-right: 0.8rem;
+}
+
+/* ################ RODAPÉ ################ */
+
+.rodape {
+    grid-column: 3 / 5;
+
+    background: var(--cor3);
+    padding: 2rem;
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
+}
+
+.rodape p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+}
+
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .menu, .animais, .faq, .contato, .rodape {
+        grid-column: 1;
+    }
+
+    .grid-section {
+        grid-template-columns: 1fr;
+    }
+    .grid-section .animais-galeria,
+    .grid-section .animais-info,
+    .grid-section .faq-info,
+    .grid-section .contato-mapa {
+        grid-column: 1;
+    }
+
+    .titulo {
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+
+    .contato-mapa img {
+        max-width: 100%;
+    }
+
+    .menu {
+        padding-top: 0;
+    }
+
+    .rodape {
+        margin-bottom: 0;
+    }
 }
