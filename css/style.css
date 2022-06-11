@@ -36,6 +36,19 @@ body {
     grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
+body::-webkit-scrollbar {
+    width: 1.8rem;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--cor3);
+    border: 0.3rem solid #faf6ed;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #faf6ed;
+}
+
 .grid-section {
     width: 100%;
     display: grid;
@@ -134,6 +147,7 @@ img {
 }
 
 .grid-section .animais-galeria::-webkit-scrollbar-thumb {
+    background-color: var(--cor3);
     border-left: 6px solid #faf6ed;
 }
 
