@@ -47,3 +47,27 @@ imgs.forEach(() => {
 });
 
 imgs.forEach(() => i++);
+
+
+// Exercício 3
+
+// Adicione a classe ativo a todos os intens do menu
+const itensMenu = document.querySelectorAll('.menu a');
+
+itensMenu.forEach(function(item) {
+    item.classList.add('ativo1')
+})
+
+itensMenu.forEach(item => item.classList.add('ativo2'));
+
+// Remova a classe ativo de todos os itens do menu e mantenha apenas no primeiro
+itensMenu.forEach(item => item.classList.remove('ativo2'));
+itensMenu[0].classList.add('ativo2')
+
+// Verifique se as imagens possuem o atributo alt
+const imagens = document.querySelectorAll('img');
+imagens.forEach(img => console.log(img.hasAttribute('alt')))
+
+// Verifique o href do link externo no menu
+const linkExterno = document.querySelector('a[href^="http"]')
+linkExterno.setAttribute('href', 'https://www.linkedin.com/in/adysonvieira/')
