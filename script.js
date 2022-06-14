@@ -20,4 +20,54 @@ if (small.matches) {
 
 console.log(small.matches)
 
+const img = document.querySelector('img');
 
+img.addEventListener('click', (event) => {
+    console.log(event)
+})
+
+function galeriaCallback(event) {
+    console.log(event.currentTarget)
+    console.log(this.getAttribute('href'))
+}
+
+animaisGaleria.addEventListener('click', galeriaCallback);
+
+
+const linkExterno = document.querySelector('a[href^="http"]')
+
+function linkCallback(event) {
+    event.preventDefault();
+    console.log(this)
+    console.log(this.getAttribute('href'))
+}
+
+linkExterno.addEventListener('click', linkCallback)
+
+
+
+
+const h1 = document.querySelector('h1');
+
+function callback(event) {
+    console.log(event.type, event)
+}
+
+console.log(h1)
+
+h1.addEventListener('click', callback);
+h1.addEventListener('mouseenter', callback);
+h1.addEventListener('mousemove', callback);
+window.addEventListener('scroll', callback);
+window.addEventListener('resize', callback); // quando a página é redimencionada
+window.addEventListener('keydown', callback); // quando uma tecla é apertada
+
+
+function callback2(event) {
+    console.log(event.key)
+    if (event.key === 'a') {
+        document.body.classList.toggle('ativo')
+    }
+}
+
+window.addEventListener('keydown', callback2)

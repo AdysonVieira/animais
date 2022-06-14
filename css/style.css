@@ -116,6 +116,7 @@ img {
 .menu a {
     color: var(--cor1);
     text-decoration: none;
+    padding: 1.8rem 1.5rem;
 }
 
 .menu ul {
