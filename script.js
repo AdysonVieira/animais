@@ -71,3 +71,15 @@ function callback2(event) {
 }
 
 window.addEventListener('keydown', callback2)
+
+
+
+const imagens = document.querySelectorAll('img');
+
+function handleImagem(event) {
+    console.log(event.target, event.target.getAttribute('src'));
+}
+
+imagens.forEach((img) => {
+    img.addEventListener('click', handleImagem );
+})

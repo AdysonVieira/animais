@@ -2,7 +2,7 @@ window.onload = function(){
     somarLarguraImagens()
 }
 
-// Exercício 1
+// Exercício 1 ########################################
 
 // Retorne no console todas as imagens do site
 const imagensHTML = document.getElementsByTagName('img'); // Ao vivo
@@ -25,7 +25,7 @@ const paragrafos = document.querySelectorAll('p');
 console.log(paragrafos[--paragrafos.length]);
 
 
-// Exercício 2
+// Exercício 2 ########################################
 
 // Mostre no console cada parágrafo do site
 paragrafos.forEach(function(paragrafo) {
@@ -53,7 +53,7 @@ imgs.forEach(() => {
 imgs.forEach(() => i++);
 
 
-// Exercício 3
+// Exercício 3 ########################################
 
 // Adicione a classe ativo a todos os intens do menu
 const itensMenu = document.querySelectorAll('.menu a');
@@ -78,7 +78,7 @@ linkExterno.setAttribute('href', 'https://www.linkedin.com/in/adysonvieira/')
 
 
 
-// Exercício 4
+// Exercício 4 ########################################
 
 // Verifique a distância da primeira imagem em relação ao topo da página
 const primeiraImagem = document.querySelector('img')
@@ -128,3 +128,56 @@ if (larguraBrowser2) {
     menu.classList.add('menu-mobile2')
 }
 
+
+// Exercício 5 ########################################
+
+// Quando o usuário clicar nos links internos do site, adicione a classe ativo ao item clicado e remova dos demais itens, caso eles possuam o mesmo. Previna o comportamento padrão desses links
+const linksInterno = document.querySelectorAll('a[href^="#"');
+
+function adicionaAtivo(event) {
+    event.preventDefault();
+    linksInterno.forEach(link => {
+        link.classList.remove('ativo')
+    })
+    event.target.classList.add('ativo');
+}
+
+linksInterno.forEach((link) => {
+    link.addEventListener('click', adicionaAtivo);
+})
+
+
+// Selecione todos os elementos do site começando a partir do body, ao clique mostre exatamente quais elementos estão sendo clicados
+const todosElementos = document.querySelectorAll('body *')
+function mostraElemento(event) {
+    console.log(event.currentTarget)
+}
+
+todosElementos.forEach((elemento) => {
+    elemento.addEventListener('click', mostraElemento)
+})
+
+// Utilizando o código anterior, ao invês de mostrar no console, remova o elemento que está sendo clicado, o método remove() remove um elemento.
+function removeElemento(event) {
+    event.currentTarget.remove()
+}
+
+todosElementos.forEach((elemento) => {
+    elemento.addEventListener('click', removeElemento)
+})
+
+// Se o usuário clicar na tecla (t) aumente todo o texto do site
+function aumentaTexto(event) {
+    if (event.key === 't') {
+        document.documentElement.style.fontSize = `${120}%` // documentElement = elemento html
+    }
+}
+
+function diminuiTexto(event) {
+    if (event.key === 'r') {
+        document.documentElement.style.fontSize = `${80}%`
+    }
+}
+
+window.addEventListener('keydown', aumentaTexto);
+window.addEventListener('keydown', diminuiTexto);
