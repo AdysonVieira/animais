@@ -1,85 +1,57 @@
-const animaisGaleria = document.querySelector('.animais-galeria');
-
-const altura = animaisGaleria.offsetHeight;
-const distanciaTop = animaisGaleria.offsetTop
-console.log(altura, distanciaTop)
-
-const rect = animaisGaleria.getBoundingClientRect();
-console.log(rect)
-
-window.addEventListener('scroll', event => {
-    if (window.pageYOffset > rect.height) {
-        console.log('passou')
-    }
-})
-
-const small = window.matchMedia('(max-width:600px)');
-if (small.matches) {
-    console.log('menor que 600px')
+window.onload = function() {
+    tabNav();
+    accordion();
 }
 
-console.log(small.matches)
+function tabNav() {
+    const tabMenu = document.querySelectorAll('.js-tabmenu li');
+    const tabContent = document.querySelectorAll('.js-tabcontent div')
 
-const img = document.querySelector('img');
+    if (tabMenu && tabContent) {
+        ativaTab(0);
 
-img.addEventListener('click', (event) => {
-    console.log(event)
-})
+        function ativaTab(index) {
+            tabContent.forEach(content => {
+                content.classList.remove('ativo')
+            })
+            tabContent[index].classList.add('ativo')
+        }
 
-function galeriaCallback(event) {
-    console.log(event.currentTarget)
-    console.log(this.getAttribute('href'))
-}
+        tabMenu.forEach((imagem, index) => {
+            imagem.addEventListener('click', () => {
+                return ativaTab(index);
+            })
 
-animaisGaleria.addEventListener('click', galeriaCallback);
-
-
-const linkExterno = document.querySelector('a[href^="http"]')
-
-function linkCallback(event) {
-    event.preventDefault();
-    console.log(this)
-    console.log(this.getAttribute('href'))
-}
-
-linkExterno.addEventListener('click', linkCallback)
-
-
-
-
-const h1 = document.querySelector('h1');
-
-function callback(event) {
-    console.log(event.type, event)
-}
-
-console.log(h1)
-
-h1.addEventListener('click', callback);
-h1.addEventListener('mouseenter', callback);
-h1.addEventListener('mousemove', callback);
-window.addEventListener('scroll', callback);
-window.addEventListener('resize', callback); // quando a página é redimencionada
-window.addEventListener('keydown', callback); // quando uma tecla é apertada
-
-
-function callback2(event) {
-    console.log(event.key)
-    if (event.key === 'a') {
-        document.body.classList.toggle('ativo')
+        })
     }
 }
 
-window.addEventListener('keydown', callback2)
+function accordion() {
+    const perguntas = document.querySelectorAll('dt');
+    const respostas = document.querySelectorAll('dd');
+    const classeAtivo = 'ativo';
+    
+    if (perguntas.length) {
+        perguntas[0].classList.add(classeAtivo);
+        perguntas[0].nextElementSibling.classList.add(classeAtivo);
+        
+        function mostrarResposta(event) {
+            this.classList.toggle(classeAtivo);
+            this.nextElementSibling.classList.toggle(classeAtivo); // this equivale ao elemento pergunta
+            
+            // Acessibilidade
+            const ariaControl = this.getAttribute('aria-controls');
+            const resposta = document.getElementById(ariaControl);
+            if (resposta.classList.contains('ativo')) {
+                this.setAttribute('aria-expanded', true)
+            }   else {
+                this.setAttribute('aria-expanded', false)
+            }
 
+        }
 
-
-const imagens = document.querySelectorAll('img');
-
-function handleImagem(event) {
-    console.log(event.target, event.target.getAttribute('src'));
+        perguntas.forEach((pergunta) => {
+            pergunta.addEventListener('click', mostrarResposta)
+        });
+    }
 }
-
-imagens.forEach((img) => {
-    img.addEventListener('click', handleImagem );
-})

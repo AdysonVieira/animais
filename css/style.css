@@ -14,6 +14,10 @@
     color: var(--cor2);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ############### RESET STYLE BODY ############## */
 * {
     margin: 0px;
@@ -75,7 +79,11 @@ dt {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+dt {
+    cursor: pointer;
 }
 
 h2::before,
@@ -92,6 +100,7 @@ p,
 dd {
     font-family: Helvetica, Arial, sans-serif;
     line-height: 2rem;
+    margin-bottom: 2.4rem;
 }
 
 img {
@@ -140,6 +149,7 @@ img {
 .animais-galeria {
     max-height: 37rem;
     overflow-y: scroll;
+    cursor: pointer;
 }
 
 /* estilo do scroll */
@@ -165,6 +175,30 @@ img {
     margin-bottom: 4rem;
 }
 
+.js .js-tabcontent div {
+    display: none;
+}
+
+.js .js-tabcontent div.ativo {
+    display: block;
+    animation: show .4s forwards;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* ################ FAQ ################ */
 
 .faq {
@@ -173,6 +207,36 @@ img {
 
 .faq-info {
     grid-column: 2 / -1;
+}
+
+.js-accordion dt::after {
+    content: "⬎";
+    margin-left: 0.8rem;
+}
+
+.js-accordion dt.ativo::after {
+    content: "⬏";
+    margin-left: 0.8rem;
+}
+
+.js dd {
+    display: none;
+}
+
+.js dd.ativo {
+    display: block;
+    animation: show-dd .4s forwards;
+}
+
+@keyframes show-dd {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ################ CONTATO ################ */
