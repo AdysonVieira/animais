@@ -1,6 +1,7 @@
 window.onload = function() {
     tabNav();
     accordion();
+    iniciaAtivaScroll();
 }
 
 function tabNav() {
@@ -28,14 +29,13 @@ function tabNav() {
 
 function accordion() {
     const perguntas = document.querySelectorAll('dt');
-    const respostas = document.querySelectorAll('dd');
     const classeAtivo = 'ativo';
     
     if (perguntas.length) {
         perguntas[0].classList.add(classeAtivo);
         perguntas[0].nextElementSibling.classList.add(classeAtivo);
         
-        function mostrarResposta(event) {
+        function mostrarResposta() {
             this.classList.toggle(classeAtivo);
             this.nextElementSibling.classList.toggle(classeAtivo); // this equivale ao elemento pergunta
             
@@ -54,4 +54,21 @@ function accordion() {
             pergunta.addEventListener('click', mostrarResposta)
         });
     }
+}
+
+function iniciaAtivaScroll() {
+    const sections = document.querySelectorAll('.js-scroll');
+
+    function ativaScroll() {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight * 0.6;
+            if ((sectionTop - windowHeight) < 0) {
+                section.classList.add('ativo')
+            }
+        })
+    }
+
+    ativaScroll();
+    window.addEventListener('scroll', ativaScroll)
 }

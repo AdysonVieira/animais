@@ -189,10 +189,7 @@ img {
         opacity: 0;
         transform: translateX(-30px);
     }
-    50% {
-        opacity: 0.5;
-        transform: translateX(10px);
-    }
+    
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -200,7 +197,6 @@ img {
 }
 
 /* ################ FAQ ################ */
-
 .faq {
     grid-column: 2 / 4;
 }
@@ -266,7 +262,6 @@ img {
 }
 
 /* ################ RODAPÉ ################ */
-
 .rodape {
     grid-column: 3 / 5;
 
@@ -283,6 +278,8 @@ img {
     letter-spacing: 0.2rem;
 }
 
+
+/* ################ RESPOSIVO ################ */
 @media (max-width: 700px) {
     body {
         grid-template-columns: 1fr;
@@ -318,4 +315,17 @@ img {
     .rodape {
         margin-bottom: 0;
     }
+}
+
+/* ################ SCROLL ################ */
+
+.js .js-scroll {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: 1s;
+}
+
+.js .js-scroll.ativo {
+    opacity: 1;
+    transform: translateX(0);
 }
