@@ -5,17 +5,18 @@ window.onload = function() {
 }
 
 function tabNav() {
-    const tabMenu = document.querySelectorAll('.js-tabmenu li');
-    const tabContent = document.querySelectorAll('.js-tabcontent div')
+    const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+    const tabContent = document.querySelectorAll('[data-tab="content"] div')
 
     if (tabMenu && tabContent) {
         ativaTab(0);
 
         function ativaTab(index) {
+            const direcao = tabContent[index].dataset.anima
             tabContent.forEach(content => {
-                content.classList.remove('ativo')
+                content.classList.remove('ativo', direcao)
             })
-            tabContent[index].classList.add('ativo')
+            tabContent[index].classList.add('ativo', direcao)
         }
 
         tabMenu.forEach((imagem, index) => {
@@ -28,7 +29,7 @@ function tabNav() {
 }
 
 function accordion() {
-    const perguntas = document.querySelectorAll('dt');
+    const perguntas = document.querySelectorAll('[data-anime="accordion"] dt');
     const classeAtivo = 'ativo';
     
     if (perguntas.length) {
@@ -57,7 +58,7 @@ function accordion() {
 }
 
 function iniciaAtivaScroll() {
-    const sections = document.querySelectorAll('.js-scroll');
+    const sections = document.querySelectorAll('[data-anime="scroll"]');
 
     function ativaScroll() {
         sections.forEach(section => {

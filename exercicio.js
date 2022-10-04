@@ -185,23 +185,39 @@
 
 // Exercício 6 ########################################
 
-// Duplique o menu e adicione ele em copy
-const menu = document.querySelector('.menu');
-const footer = document.querySelector('.rodape');
+// // Duplique o menu e adicione ele em copy
+// const menu = document.querySelector('.menu');
+// const footer = document.querySelector('.rodape');
 
-const cloneMenu = menu.cloneNode(true);
-footer.appendChild(cloneMenu);
+// const cloneMenu = menu.cloneNode(true);
+// footer.appendChild(cloneMenu);
 
-// Selecione o primeiro 'dt' da 'dl' em Faq
-const faqInfo = document.querySelector('.faq-info');
-const primeiraPergunta = faqInfo.querySelector('dt')
+// // Selecione o primeiro 'dt' da 'dl' em Faq
+// const faqInfo = document.querySelector('.faq-info');
+// const primeiraPergunta = faqInfo.querySelector('dt')
 
-// Selecione o 'dd' referente ao primeiro 'dt'
-const primeiraResposta = primeiraPergunta.nextElementSibling;
-console.log(primeiraResposta)
+// // Selecione o 'dd' referente ao primeiro 'dt'
+// const primeiraResposta = primeiraPergunta.nextElementSibling;
+// console.log(primeiraResposta)
 
-// Substitua o conteúdo HTML de .faq pelo de .animais
-const animais = document.querySelector('.animais');
-const faq = document.querySelector('.faq');
+// // Substitua o conteúdo HTML de .faq pelo de .animais
+// const animais = document.querySelector('.animais');
+// const faq = document.querySelector('.faq');
 
-animais.innerHTML = faq.innerHTML
+// animais.innerHTML = faq.innerHTML
+
+
+// Exercício 7 #########################################
+// Adicione um atributo data-anime="show-down" e
+// data-anime="show-right" a todos as section's
+// com descricão dos animais.
+
+// Utilizando estes atributos, adicione a classe
+// show-down ou show-right a sua respectiva section
+// assim que a mesma aparecer na tela (animacao tab)
+
+// No CSS faça com que show-down anime de cima para baixo
+// e show-right continue com a mesma animação da esquerda
+// para a direita
+
+// Substitua todas as classes js- por data atributes.

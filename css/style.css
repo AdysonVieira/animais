@@ -175,13 +175,17 @@ img {
     margin-bottom: 4rem;
 }
 
-.js .js-tabcontent div {
+.js [data-tab="content"] div {
     display: none;
 }
 
-.js .js-tabcontent div.ativo {
+.js [data-tab="content"] div.ativo {
     display: block;
     animation: show .4s forwards;
+}
+
+.js .animais-info div.show-up.ativo {
+    animation: show-up .4s forwards;
 }
 
 @keyframes show {
@@ -196,6 +200,17 @@ img {
     }
 }
 
+@keyframes show-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ################ FAQ ################ */
 .faq {
     grid-column: 2 / 4;
@@ -205,12 +220,12 @@ img {
     grid-column: 2 / -1;
 }
 
-.js-accordion dt::after {
+[data-anime="accordion"] dt::after {
     content: "⬎";
     margin-left: 0.8rem;
 }
 
-.js-accordion dt.ativo::after {
+[data-anime="accordion"] dt.ativo::after {
     content: "⬏";
     margin-left: 0.8rem;
 }
@@ -319,13 +334,13 @@ img {
 
 /* ################ SCROLL ################ */
 
-.js .js-scroll {
+.js [data-anime="scroll"] {
     opacity: 0;
     transform: translateX(-30px);
     transition: 1s;
 }
 
-.js .js-scroll.ativo {
+.js [data-anime="scroll"].ativo {
     opacity: 1;
     transform: translateX(0);
 }
