@@ -1,0 +1,12 @@
+/* ################ SCROLL ################ */
+
+.js [data-anime="scroll"] {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: 1s;
+}
+
+.js [data-anime="scroll"].ativo {
+    opacity: 1;
+    transform: translateX(0);
+}

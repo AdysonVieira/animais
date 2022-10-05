@@ -1,0 +1,25 @@
+.menu {
+    padding-top: 2.8rem;
+    padding-bottom: 2.8rem;
+
+    grid-column: 3/-1;
+}
+
+.menu-itens {
+    list-style: none;
+    text-decoration: none;
+    background-color: var(--cor3);
+}
+
+.menu a {
+    color: var(--cor1);
+    text-decoration: none;
+    padding: 1.8rem 1.5rem;
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}

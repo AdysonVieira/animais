@@ -1,0 +1,24 @@
+.contato {
+    grid-column: 2 / 4;
+}
+
+.grid-section .contato-mapa {
+    grid-column: 2;
+}
+
+.contato li p {
+    margin-bottom: 2rem;
+    
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contato li p::before {
+    content: '';
+    display: inline-block;
+    width: 4rem;
+    height: 1rem;
+    background-color: var(--cor3);
+    margin-right: 0.8rem;
+}

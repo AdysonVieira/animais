@@ -1,0 +1,37 @@
+.faq {
+    grid-column: 2 / 4;
+}
+
+.faq-info {
+    grid-column: 2 / -1;
+}
+
+[data-anime="accordion"] dt::after {
+    content: "⬎";
+    margin-left: 0.8rem;
+}
+
+[data-anime="accordion"] dt.ativo::after {
+    content: "⬏";
+    margin-left: 0.8rem;
+}
+
+.js dd {
+    display: none;
+}
+
+.js dd.ativo {
+    display: block;
+    animation: show-dd .4s forwards;
+}
+
+@keyframes show-dd {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
