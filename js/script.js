@@ -1,10 +1,11 @@
-import scrollReveal from "./modules/scroll-reveal.js";
-import accordion from "./modules/accordion.js";
-import tabNav from "./modules/tab-nav.js";
-import modal from "./modules/modal.js";
+import initTabNav from "./modules/tab-nav.js"
+import initAccordion from "./modules/accordion.js"
+import initScrollReveal from "./modules/scroll-reveal.js"
+import initModal from "./modules/modal.js"
+import initTooltip from "./modules/tooltip.js"
 
-scrollReveal();
-accordion();
-tabNav()
-modal();
-
+initTabNav();
+initAccordion();
+initScrollReveal();
+initModal();
+initTooltip();

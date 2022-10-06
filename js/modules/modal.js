@@ -1,4 +1,4 @@
-export default function modal() {
+export default function initModal() {
     const btnEntrar = document.querySelector('[data-modal="btn-entrar"]');
     const btnClose = document.querySelector('[data-modal="btn-close"]')
     const containerModal = document.querySelector('[data-modal="container"')

@@ -1,4 +1,4 @@
-export default function scrollReveal() {
+export default function initScrollReveal() {
     const sections = document.querySelectorAll('[data-anime="scroll"]');
 
     function ativaScroll() {

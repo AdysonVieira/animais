@@ -1,4 +1,4 @@
-export default function accordion() {
+export default function initAccordion() {
     const perguntas = document.querySelectorAll('[data-anime="accordion"] dt');
     const classeAtivo = 'ativo';
     
