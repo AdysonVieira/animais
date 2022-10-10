@@ -18,7 +18,7 @@
 }
 
 .ativo .modal {
-    animation: modal .2s forwards;
+    animation: fade-down .2s forwards;
 }
 
 .modal {
@@ -72,17 +72,5 @@ form label {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-}
-
-/* ############# ANIMATION ############# */
-
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    background-color: var(--cor3);
 }
