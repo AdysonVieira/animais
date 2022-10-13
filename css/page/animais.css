@@ -8,6 +8,7 @@
 }
 
 .animais-galeria {
+    max-width: 100%;
     max-height: 37rem;
     overflow-y: scroll;
     cursor: pointer;
@@ -26,7 +27,6 @@
 .grid-section .animais-galeria::-webkit-scrollbar-track {
     background: #faf6ed;
 }
-
 
 .grid-section .animais-info {
     grid-column: 3;
@@ -69,5 +69,16 @@
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .animais {
+        grid-column: 1;
+        margin-bottom: 6rem;
+    }
+
+    .grid-section .animais-galeria {
+        grid-column: 1;
     }
 }

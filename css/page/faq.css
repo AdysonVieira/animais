@@ -35,3 +35,13 @@
         transform: translateY(0);
     }
 }
+
+@media screen and (max-width: 700px) {
+    .faq {
+        grid-column: 1;
+    }
+    
+    .faq-info {
+        grid-column: 1;
+    }
+}

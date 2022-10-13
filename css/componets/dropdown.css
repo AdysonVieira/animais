@@ -43,3 +43,11 @@
     border-right: 10px solid transparent;
     border-bottom: 10px solid var(--cor2);
 }
+
+@media screen and (max-width: 700px) {
+    .menu-dropdown {
+        position: static;
+        border: none;
+        margin-top: 1rem;
+    }
+}

@@ -13,3 +13,9 @@
     font-weight: 700;
     letter-spacing: 0.2rem;
 }
+
+@media screen and (max-width: 700px) {
+    .rodape {
+        grid-column: 1;
+    }
+}
