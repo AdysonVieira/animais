@@ -15,19 +15,11 @@ export default function initDropdown() {
         event.stopPropagation();
         event.preventDefault(); // lembrar de remover essa linha quando adicionar links as páginas
         dropdownMenu.classList.toggle('active');
-        // cria o evento no HTML se conter ativo
-        if(dropdownMenu.classList.contains('active')){
-            ['click', 'touchstart'].forEach(userEvent => {
-                html.addEventListener(userEvent, clickOut, {
-                    capture: false
-                })
-            })
-        }
     }
     
-    function clickOut() {
-        if(dropdownMenu.classList.contains('active')) {
-            dropdownMenu.classList.remove('active');
+    function clickOut(element) {
+        if(element.classList.contains('active')) {
+            element.classList.remove('active');
             ['click', 'touchstart'].forEach(userEvent => {
                 html.removeEventListener(userEvent, clickOut, {
                     capture: false
