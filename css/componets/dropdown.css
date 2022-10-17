@@ -6,8 +6,8 @@
     display: none;
 }
 
-[data-dropdown]:hover .menu-dropdown,
-[data-dropdown] .menu-dropdown.active{
+/* [data-dropdown]:hover .menu-dropdown, */
+[data-dropdown].active .menu-dropdown{
     display: block;
     animation: fade-down .2s forwards;
 
