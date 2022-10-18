@@ -1,21 +1,16 @@
-export default function clickOut(element, events, callback) {
+export default function clickOut(element, callback) {
     const html = document.documentElement;
     
     if (!element.hasAttribute('data-outside')) {
         element.setAttribute('data-outside', '')
-        events.forEach(userEvent => {
-            html.addEventListener(userEvent, handleClickOut)
-        })
+        html.addEventListener('click', handleClickOut, event.stopPropagation())
     }
     
     function handleClickOut(event) {
         if (!element.contains(event.target)) {
-            element.removeAttribute('data-outside')
-            events.forEach(userEvent => {
-                html.removeEventListener(userEvent, handleClickOut)
-            })
-
+            element.removeAttribute('data-outside');
+            html.removeEventListener('click', handleClickOut, event.stopPropagation());
+            callback()
         }
     }
-    callback()
 }
