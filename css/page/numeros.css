@@ -24,3 +24,13 @@
     font-size: 6rem;
     color: var(--cor2);
 }
+
+@media screen and (max-width: 700px) {
+    .numeros {
+        grid-column: 1;
+    }
+    
+    .grid-numeros {
+        grid-column: 1;
+    }
+}

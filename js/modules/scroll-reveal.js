@@ -4,13 +4,13 @@ export default function initScrollReveal() {
     function ativaScroll() {
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight * 0.6;
-            if ((sectionTop - windowHeight) < 0) {
-                section.classList.add('ativo')
+            const windowHeight = window.innerHeight * 0.4;
+            const eVisivel = (sectionTop - windowHeight) < 0;
+            if (eVisivel && !section.classList.contains('ativo')) {
+                section.classList.add('ativo');
             }
         })
     }
-
-    ativaScroll();
+    ativaScroll()
     window.addEventListener('scroll', ativaScroll)
 }
