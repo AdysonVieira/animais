@@ -23,6 +23,21 @@
     margin-right: 0.8rem;
 }
 
+[data-dias]::after {
+    content: "";
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid var(--cor1);
+    margin-left: 0.8rem;
+}
+
+[data-dias].aberto::after {
+    background-color: rgb(47, 255, 82);
+}
+
 @media screen and (max-width: 700px) {
     .contato {
         grid-column: 1;
