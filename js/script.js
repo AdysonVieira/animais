@@ -5,8 +5,9 @@ import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
 import initMenuMobile from "./modules/menu-mobile.js";
-import initAnimaNumber from "./modules/anime-number.js";
-import initFuncionamento from "./modules/funcionamento.js"
+// import initAnimaNumber from "./modules/anime-number.js";
+import initFuncionamento from "./modules/funcionamento.js";
+import initAnimaisFetch from "./modules/animais-fetch.js";
 
 initTabNav();
 initAccordion();
@@ -15,5 +16,6 @@ initModal();
 initTooltip();
 initDropdown();
 initMenuMobile();
-initAnimaNumber();
+// initAnimaNumber();
 initFuncionamento();
+initAnimaisFetch();
