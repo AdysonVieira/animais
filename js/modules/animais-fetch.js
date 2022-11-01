@@ -4,12 +4,15 @@ export default function initAnimaisFetch() {
     const gridNumeros = document.querySelector('.grid-numeros')
 
     async function animaisFetch(){
-        const animaisJSON = await ( await fetch('../../animaisapi.json') ).json();
-        animaisJSON.forEach(animal => {
-            createAnimal(animal)
-        });
-
-        initAnimaNumber();
+        try {
+            const animaisJSON = await ( await fetch('../../animaisapi.json') ).json();
+            animaisJSON.forEach(animal => {
+                createAnimal(animal)
+            });
+            initAnimaNumber();
+        } catch(erro) {
+            console.log(erro)
+        }
     }
     
     function createAnimal(animal) {
@@ -21,5 +24,4 @@ export default function initAnimaisFetch() {
     }
     
     animaisFetch()
-
 }
