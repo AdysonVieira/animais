@@ -5,7 +5,6 @@ export default function initAccordion() {
     if (perguntas.length) {
         perguntas[0].classList.add(classeAtivo);
         perguntas[0].nextElementSibling.classList.add(classeAtivo);
-        
         function mostrarResposta() {
             this.classList.toggle(classeAtivo);
             this.nextElementSibling.classList.toggle(classeAtivo); // this equivale ao elemento pergunta
@@ -18,8 +17,7 @@ export default function initAccordion() {
             }   else {
                 this.setAttribute('aria-expanded', false)
             }
-
-        }
+       }
 
         perguntas.forEach((pergunta) => {
             pergunta.addEventListener('click', mostrarResposta)

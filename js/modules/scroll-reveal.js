@@ -11,6 +11,7 @@ export default function initScrollReveal() {
             }
         })
     }
+
     ativaScroll()
     window.addEventListener('scroll', ativaScroll)
 }
