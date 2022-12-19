@@ -1,28 +1,32 @@
-export default function initAccordion() {
-    const perguntas = document.querySelectorAll('[data-anime="accordion"] dt');
-    const classeAtivo = 'ativo';
+export default class Accordion {
+    constructor(elements) {
+        this.elements = document.querySelectorAll(elements);
+        this.activeClass = 'ativo'
+    }
     
-    if (perguntas.length) {
-        perguntas[0].classList.add(classeAtivo);
-        perguntas[0].nextElementSibling.classList.add(classeAtivo);
-        function mostrarResposta() {
-            this.classList.toggle(classeAtivo);
-            this.nextElementSibling.classList.toggle(classeAtivo); // this equivale ao elemento pergunta
-            
-            // Acessibilidade
-            const ariaControl = this.getAttribute('aria-controls');
-            const resposta = document.getElementById(ariaControl);
-            if (resposta.classList.contains('ativo')) {
-                this.setAttribute('aria-expanded', true)
-            }   else {
-                this.setAttribute('aria-expanded', false)
-            }
-       }
+    // adiciona a classe ativo nos elementos
+    show(element) {
+        element.classList.toggle(this.activeClass);
+        element.nextElementSibling.classList.toggle(this.activeClass);
+        
+        // Acessibilidade
+        const ariaControl = element.getAttribute('aria-controls');
+        const resposta = document.getElementById(ariaControl);
+        if (resposta.classList.contains('ativo')) {
+            element.setAttribute('aria-expanded', true)
+        }   else {
+            element.setAttribute('aria-expanded', false)
+        }
+    }
 
-        perguntas.forEach((pergunta) => {
-            pergunta.addEventListener('click', mostrarResposta)
-        });
+    // Inicia a classe e adiciona o evento de clique nos elementos
+    init() {
+        // verifica se há elementos
+        if (this.elements.length) {
+            this.show(this.elements[0]) // deixa a primeira resposta ativa
+            this.elements.forEach((element) => {
+                element.addEventListener('click', () => this.show(element))
+            })
+        }
     }
 }
-
-console.log('oi')
