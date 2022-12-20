@@ -1,7 +1,7 @@
 import Accordion from "./modules/accordion.js";
 import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
-import initTooltip from "./modules/tooltip.js";
+import Tooltip from "./modules/tooltip.js";
 import initScrollReveal from "./modules/scroll-reveal.js";
 import initDropdown from "./modules/dropdown.js";
 import initMenuMobile from "./modules/menu-mobile.js";
@@ -18,8 +18,10 @@ tabNav.init();
 const modal = new Modal('[data-modal="btn-entrar"]', '[data-modal="btn-close"]', '[data-modal="container"]')
 modal.init();
 
+const tooltip = new Tooltip('[data-tooltip]')
+tooltip.init();
+
 initScrollReveal();
-initTooltip();
 initDropdown();
 initMenuMobile();
 initFuncionamento();
