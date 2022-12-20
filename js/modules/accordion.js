@@ -13,9 +13,9 @@ export default class Accordion {
         const ariaControl = element.getAttribute('aria-controls');
         const resposta = document.getElementById(ariaControl);
         if (resposta.classList.contains('ativo')) {
-            element.setAttribute('aria-expanded', true)
+            element.setAttribute('aria-expanded', true);
         }   else {
-            element.setAttribute('aria-expanded', false)
+            element.setAttribute('aria-expanded', false);
         }
     }
 
@@ -26,7 +26,8 @@ export default class Accordion {
             this.show(this.elements[0]) // deixa a primeira resposta ativa
             this.elements.forEach((element) => {
                 element.addEventListener('click', () => this.show(element))
-            })
-        }
+            });
+        };
+        return this;
     }
 }

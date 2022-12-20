@@ -16,11 +16,12 @@ export default class TabNav {
     
     // Verifica se os elementos existem e adiciona os eventos nas tabs
     init() {
-        if(this.tabMenu.length && this.tabContent.length) {
+        if (this.tabMenu.length && this.tabContent.length) {
             this.activeTab(0);
             this.tabMenu.forEach((item, index) => {
                 item.addEventListener('click', () => this.activeTab(index));
-            })
+            });
         };
+        return this;
     }
 }
