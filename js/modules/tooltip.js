@@ -41,6 +41,7 @@ export default class Tooltip {
 
     // remove os eventos do elemento quando o mouse sai do mesmo
     onMouseLeave( {currentTarget} ) {
+        this.tooltip.remove()
         currentTarget.removeEventListener('mouseleave', this.onMouseLeave);
         currentTarget.removeEventListener('mousemove', this.onMouseMove);
     }
