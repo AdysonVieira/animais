@@ -1,4 +1,4 @@
-import initAnimaNumber from "./anime-number.js";
+import AnimaNumber from "./anime-number.js";
 
 export default function initAnimaisFetch() {
     const gridNumeros = document.querySelector('.grid-numeros');
@@ -9,15 +9,18 @@ export default function initAnimaisFetch() {
             animaisJSON.forEach(animal => {
                 createAnimal(animal);
             });
-            initAnimaNumber();
+            
+            const animaNumeros = new AnimaNumber('[data-anime="numeros"]', '#numeros', 'ativo')
+            animaNumeros.init();
+
         } catch(erro) {
             console.log(erro);
         }
     }
-    function createAnimal(animal) {
+    function createAnimal( {especie, total} ) {
         const newAnimal = document.createElement('li');
         newAnimal.classList.add('card-animal');
-        newAnimal.innerHTML = `<h3>${animal.especie}</h3><span data-anime="numeros">${animal.total}</span>`;
+        newAnimal.innerHTML = `<h3>${especie}</h3><span data-anime="numeros">${total}</span>`;
         gridNumeros.appendChild(newAnimal);
         return newAnimal;
     }
