@@ -4,35 +4,42 @@ export default class ScrollReveal {
         this.className = className
         
         // bind para o this da class
-        this.handleElements = this.handleElements.bind(this)
-        this.constructor.animation = this.constructor.animation.bind(this)
+        this.getElementDistance = this.getElementDistance.bind(this)
+        this.checkDistance = this.checkDistance.bind(this)
     }
 
-    // constructor que recebe um elemento, verifica se o topo do elemento está na metade da tela e adiciona a class de animação
-    static animation(element) {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight * 0.5;
-        const isVisible = (elementTop - windowHeight) < 0;
-        (isVisible && !element.classList.contains(this.className))
-        ? element.classList.add(this.className)
-        : ''
+    // cria uma nova propriedade onde o valor é array de objetos com o element e o offsetTop (faz um map na NodeList de elementos)
+    getElementDistance() {
+        this.distance = [...this.elements].map(( element ) => {
+            return {
+                element,
+                offset: element.offsetTop
+            }
+        })
+    }
+
+    // recebe um array de objetos com a distancia  e checa se o topo de cada elemento passou pela metade da tela e adiciona a classe no elemento
+    checkDistance() {
+        const halfWindowHeight = innerHeight * 0.5;
+        this.distance.forEach(( { element, offset } ) => {
+            (offset - window.pageYOffset - halfWindowHeight) < 0
+            && !element.classList.contains(this.className)
+            ? element.classList.add(this.className)
+            : ''
+        })
     }
 
     // adiciona o evento de scroll ao window
     addScrollEvent() {
-        window.addEventListener('scroll', this.handleElements)
+        window.addEventListener('scroll', this.checkDistance )
     }
 
-    // percorre os elementos os elementos e 
-    handleElements() {
-        this.elements.forEach(( element ) => this.constructor.animation( element ))
-    }
-
-    // inicia o objeto da class, verifica se contém elementos e inicia a chamada do evento
+    // inicia o objeto da class, verifica se contém elementos e inicia a chamada dos métodos
     init() {
         if (this.elements.length) {
-            this.constructor.animation(this.elements[0])
             this.addScrollEvent();
+            this.getElementDistance();
+            this.checkDistance();
         }
         return this;
     }

@@ -3,7 +3,7 @@ import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import ScrollReveal from "./modules/scroll-reveal.js";
-import initDropdown from "./modules/dropdown.js";
+import Dropdown from "./modules/dropdown.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initAnimaisFetch from "./modules/animais-fetch.js";
@@ -22,9 +22,11 @@ const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init();
 
 const scroll = new ScrollReveal('[data-anime="scroll"]', 'ativo');
-scroll.init()
+scroll.init();
 
-initDropdown();
+const dropdownMenu = new Dropdown('[data-dropdown]');
+dropdownMenu.init();
+
 initMenuMobile();
 initFuncionamento();
 initAnimaisFetch();
