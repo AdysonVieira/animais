@@ -1,16 +1,27 @@
-export default function initFuncionamento() {
-    const funcionamento = document.querySelector('[data-dias]');
-    const horario = document.querySelector('[data-horas]')
-    const diasSemana = funcionamento.dataset.dias.split(',').map(Number)
-    const horasDia = horario.dataset.horas.split(',').map(Number)
-    const presenteDia = new Date()
-
-    function checkDia(dia, hora) {
-        if (diasSemana.includes(dia) && horasDia[0] <= hora && horasDia[1] > hora) {
-            funcionamento.classList.add('aberto')
-        } else {
-            funcionamento.classList.remove('aberto')
-        }
+export default class Funcionamento {
+    constructor(dias, horario) {
+        this.dias = document.querySelector(dias);
+        this.horario = document.querySelector(horario)
+        this.presenteDia = new Date()
     }
-    checkDia(presenteDia.getDay(), presenteDia.getHours())
+    // busca os valores passados no dataset, separa e transforma em numero
+    dataFuncionamento() {
+        this.diasSemana = this.dias.dataset.dias.split(',').map(Number)
+        this.horasDia = this.horario.dataset.horas.split(',').map(Number)
+    }
+
+    // compara se os dias e horario são iguais ao da data e hora atual
+    checkDia(dia, hora) {
+        (this.diasSemana.includes(dia) && this.horasDia[0] <= hora && this.horasDia[1] > hora)
+        ? this.dias.classList.add('aberto')
+        : this.dias.classList.remove('aberto')
+    }
+
+    init() {
+        if (this.dias && this.horario) {
+            this.dataFuncionamento();
+            this.checkDia(this.presenteDia.getDay(), this.presenteDia.getUTCHours() - 3 );
+        }
+        return this;
+    }
 }

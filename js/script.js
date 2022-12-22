@@ -4,8 +4,8 @@ import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import ScrollReveal from "./modules/scroll-reveal.js";
 import Dropdown from "./modules/dropdown.js";
-import initMenuMobile from "./modules/menu-mobile.js";
-import initFuncionamento from "./modules/funcionamento.js";
+import MenuMobile from "./modules/menu-mobile.js";
+import Funcionamento from "./modules/funcionamento.js";
 import initAnimaisFetch from "./modules/animais-fetch.js";
 import initBitcoinFetch from "./modules/bitcoin-fetch.js";
 
@@ -27,7 +27,11 @@ scroll.init();
 const dropdownMenu = new Dropdown('[data-dropdown]');
 dropdownMenu.init();
 
-initMenuMobile();
-initFuncionamento();
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="items"]', 'active')
+menuMobile.init()
+
+const funcionamento = new Funcionamento('[data-dias]', '[data-horas]')
+funcionamento.init()
+
 initAnimaisFetch();
 initBitcoinFetch();
